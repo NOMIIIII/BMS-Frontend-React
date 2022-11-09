@@ -1,32 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './components/navbar'
+import Home from './pages/home/home'
+import AddBooks from './pages/addbooks/addbooks'
+import ListBooks from './pages/booklist/booklist'
+import EditBooks from './pages/editbooks/editbooks';
 
 function App() {
   return (
     <div className="App">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-        <a class="navbar-brand" href="#">Books Management Systems</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10"
-          aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
-          <ul class="navbar-nav ">
-            <li class="nav-item">
-              <a class="btn btn-outline-warning text-dark mr-2" routerLink="/">Home</a>
-            </li>
-
-            <li  class="nav-item">
-              <a class="btn btn-outline-warning text-dark mr-2" >Add Book</a>
-            </li>
-            <li  class="nav-item">
-              <a class="btn btn-outline-warning text-dark mr-2" >Book List</a>
-            </li>
-          
-          </ul>
-        </div>
-      </nav>
+      <Navbar/>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' exact element={<Home/>}/>
+          <Route exact path='/admin/addbooking' element={<AddBooks/>}/>
+          <Route exact path='/admin/booklist' element={<ListBooks/>}/>
+          <Route exact path='admin/booklist/edit/:id' element={<EditBooks/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
