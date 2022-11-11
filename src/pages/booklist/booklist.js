@@ -13,6 +13,7 @@ function ListBooks() {
     }
 
     useEffect(()=>{
+      // document.getElementsByTagName('body')[0].style.background = "none";
       getList()
     },[])
 
@@ -22,12 +23,11 @@ function ListBooks() {
 
     return (
         <div>
-          {console.log("BOOK LIST",booklist)}
-        <table class="table table-bordered">
+        <table class="table table-bordered table-dark">
         <thead>
         <tr>
           <th>TITLE</th>
-          <th>AUTHOR</th>
+          <th>Description </th>
           <th>STATUS</th>
           <th width="275" align="center">ACTION</th>
         </tr>
@@ -38,7 +38,7 @@ function ListBooks() {
             booklist.map((val) => 
             <tr  >
               <td>{val.book_name}</td>
-              <td>{val.book_author}</td>
+              <td>{val.book_description}</td>
               <td>{val.book_status}</td> 
               <td width="275"> 
                 <Link class="btn btn-success mr-2" to={"edit/"+val._id}>Edit</Link>

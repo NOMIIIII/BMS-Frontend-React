@@ -1,6 +1,12 @@
+import React, { useEffect, useState } from 'react'
 
 
 function Home() {
+
+  useEffect(()=>{
+    // document.getElementsByTagName("body")[0].style.setProperty("") = "url('../../imgs/library.jpg')"
+  },[])
+
     return (
       <div>
         <div class="container">
